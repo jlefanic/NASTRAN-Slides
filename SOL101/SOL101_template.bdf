@@ -1,0 +1,78 @@
+$ File Management Section - - - - - - - - - - - - - - - - - - - - - - - +
+$ Default . op2 filename is as the input run
+ASSIGN OUTPUT2 ='myfirstnastranrun.op2' UNIT=12 STATUS=NEW
+
+$ NASTRAN Statement - - - - - - - - - - - - - - - - - - - - - - - - - - +
+NASTRAN SYSTEM (319)=1                                                  | Extended Error Messages
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$ Executive Control Section - - - - - - - - - - - - - - - - - - - - - - +
+SOL 101
+CEND
+
+$ Case Control Section- - - - - - - - - - - - - - - - - - - - - - - - - +
+ECHO = NONE
+
+TITLE = MY FIRST NASTRAN RUN
+
+$ Displacement Output Request
+$ - PRINT : Output to . f06
+$ - PUNCH : Output to . pch
+$ - PLOT  : Output to . op2
+DISP(PRINT,PUNCH,PLOT)=ALL
+
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+$ * BENDING                                                             *
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+SUBCASE 1000  $ - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+LABEL = CANTILEVER BEAM                                                 |
+SUBTITLE = BENDING                                                      |
+$ LOAD =1000      $ F                                                   |
+SPC =1000         $ Boundary Conditions in o = Clamped Condition        |
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+$ * TENSILE FORCE                                                       *
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+SUBCASE 2000  $ - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+LABEL = CANTILEVER BEAM                                                 |
+SUBTITLE = TENSILE FORCE                                                |
+$ LOAD =2000      $ T                                                   |
+SPC =1000         $ Boundary Conditions in o = Clamped Condition        |
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$ Bulk Data - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+BEGIN BULK
+$ Bulk Parameters - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+PARAM,POST,-1
+PARAM,AUTOSPC,NO
+PARAM,PRTMAXIM,YES
+
+$ NASTRAN Cards data written in 8 Characters wide field ( small field )
+$1      2       3       4       5       6       7       8       9       +
+GRID    1       0       0.      0.      0.
+$
+$ NASTRAN Cards data written in 16 Characters wide field ( large field )
+$ to allow eg. higher digits precision for GRID coordinate
+$1      2               3               4               5               +
+GRID*   2               0               1.0000000000000 0.              *
+$+      6               7               8               9               
+*       0.
+$
+GRID    3       0       1.      1.      0.
+GRID    4       0       0.      1.      0.
+$ Elements
+$QUAD4 #1       PID     Node #1 Node #2 Node #3 Node #4 
+CQUAD4  1       1       1       2       3       4
+$ Properties
+PSHELL  1       1       5.-3    1               1
+$ Materials
+MAT1     1      70000.          .33
+$ BCs
+SPCADD   1000    1
+SPC1     1       123456  1      THRU    2
+$ Loads 
+ENDDATA
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
