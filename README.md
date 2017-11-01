@@ -6,7 +6,7 @@ NASTRAN&#x2122; is a Finite Element Analysis software package.
 
 NASTRAN&#x2122; means **NAS**A&#x2122; **STR**uctural **AN**alysis. The name is a reference to its ground foundation programme layer on FORTRAN (**FOR**mula **TRAN**slation) programming language. Have a look to `github` [nasa/NASTRAN-95](https://github.com/nasa/NASTRAN-95) if you are interested in NASTRAN&#x2122; internal machinery.
 
-NASTRAN&#x2122; is a reliable FEA code but due its more than 50 years live the old-style formatting of input decks are sometimes discouraging for Students to dive into.
+NASTRAN&#x2122; is a reliable FEA code but due its more than 50 years live the old-style formatting of input decks is sometimes discouraging for Students to dive into.
 
 The hereuploaded Slides
 have been used as a NASTRAN&#x2122; Introduction at [INSA Toulouse](https://www.insa-toulouse.fr/en/index.html) (France) for undergaduate Students (mechanical/systems engineering syllabus) from 2013 to 2017.
