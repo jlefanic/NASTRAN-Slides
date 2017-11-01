@@ -30,10 +30,10 @@ Lecture Id.     |  githubed | Elements Topology |  Contents
 
 Lecture Id.   | SOL 101 | SOL 103 | SOL 105 | SOL 106 | SOL 112 | SOL 200 | SOL 600
 ------------  | ------- | ------- | ------- | ------- | ------- | ------- | -------
-1 | <html>&#x25CF;</html>| <html>&#x25E6;</html> | <html>&#x25E6;</html> |<html>&#x25CF;</html> | <html>&#x25E6;</html> | <html>&#x25CF;</html> | <html>&#x25E6;</html>
-2  | <html>&#x25CF;</html>| <html>&#x25E6;</html> | <html>&#x25CF;</html> |<html>&#x25E6;</html> | <html>&#x25E6;</html> | <html>&#x25E6;</html> | <html>&#x25E6;</html>
-3  | <html>&#x25CF;</html>| <html>&#x25E6;</html> | <html>&#x25E6;</html> |<html>&#x25E6;</html> | <html>&#x25CF;</html> | <html>&#x25E6;</html> |<html>&#x25CF;</html>
-4  | <html>&#x25CF;</html>| <html>&#x25CF;</html> | <html>&#x25E6;</html> |<html>&#x25E6;</html>| <html>&#x25E6;</html> | <html>&#x25E6;</html> | <html>&#x25E6;</html>
+1 | <html>&#x25CF;</html>| <html>&#x25CB;</html> | <html>&#x25CB;</html> |<html>&#x25CF;</html> | <html>&#x25CB;</html> | <html>&#x25CF;</html> | <html>&#x25CB;</html>
+2  | <html>&#x25CF;</html>| <html>&#x25CB;</html> | <html>&#x25CF;</html> |<html>&#x25CB;</html> | <html>&#x25CB;</html> | <html>&#x25CB;</html> | <html>&#x25CB;</html>
+3  | <html>&#x25CF;</html>| <html>&#x25CB;</html> | <html>&#x25CB;</html> |<html>&#x25CB;</html> | <html>&#x25CF;</html> | <html>&#x25CB;</html> |<html>&#x25CF;</html>
+4  | <html>&#x25CF;</html>| <html>&#x25CF;</html> | <html>&#x25CB;</html> |<html>&#x25CB;</html>| <html>&#x25CB;</html> | <html>&#x25CB;</html> | <html>&#x25CB;</html>
 
 **Nota** Only Structured Solution Sequences covered.
 
