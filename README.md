@@ -24,24 +24,25 @@ Lecture Id.     |  githubed | Elements Topology |  Contents
 3 | &#10004; | 1D & 3D | transcient dynamic analysis, nonlinear structural contact analysis
 4 | &#10008; | 3D | modal analysis (Students final exam)
 
-**Nota** Lecture 4 not githubed because not edited (Students Final Exam).
+**Nota :** Lecture 4 not githubed because not edited (Students Final Exam).
 
 ## SOL Coverage
 
 Lecture Id.   | SOL 101 | SOL 103 | SOL 105 | SOL 106 | SOL 112 | SOL 200 | SOL 600
-------------  | ------- | ------- | ------- | ------- | ------- | ------- | -------
-1 | <html>&#x25CF;</html>| <html>&#x25CB;</html> | <html>&#x25CB;</html> |<html>&#x25CF;</html> | <html>&#x25CB;</html> | <html>&#x25CF;</html> | <html>&#x25CB;</html>
-2  | <html>&#x25CF;</html>| <html>&#x25CB;</html> | <html>&#x25CF;</html> |<html>&#x25CB;</html> | <html>&#x25CB;</html> | <html>&#x25CB;</html> | <html>&#x25CB;</html>
-3  | <html>&#x25CF;</html>| <html>&#x25CB;</html> | <html>&#x25CB;</html> |<html>&#x25CB;</html> | <html>&#x25CF;</html> | <html>&#x25CB;</html> |<html>&#x25CF;</html>
-4  | <html>&#x25CF;</html>| <html>&#x25CF;</html> | <html>&#x25CB;</html> |<html>&#x25CB;</html>| <html>&#x25CB;</html> | <html>&#x25CB;</html> | <html>&#x25CB;</html>
+------------  |  :-----: |  :-----: |  :-----: | :-----: | :-----: |  :-----: |  :-----:
+1 | <html>&#10004;</html>|   |   | <html>&#10004;</html> |   | <html>&#10004;</html> |  
+2  | <html>&#10004;</html>|  | <html>&#10004;</html> | |  |   |
+3  | <html>&#10004;</html>|  |  | | <html>&#10004;</html> |  |<html>&#10004;</html>
+4  | <html>&#10004;</html>| <html>&#10004;</html> |  ||  |  |
 
-**Nota** Only Structured Solution Sequences covered.
+**Nota :** Only Structured Solution Sequences covered.
 
 # Outcomes
 
 To do list :
 - [x] Lectures Slides githubed
 - [ ] NASTRAN&#x2122; bulk data files Case Studies of Lectures githubed
+- [ ] NASTRAN&#x2122; bulk data files Case Studies of Lectures vs. Close form solutions jupyter notebooks githubed
 - [ ] Complete README
 - [ ] Complete References
 
