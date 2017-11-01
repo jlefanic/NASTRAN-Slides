@@ -24,18 +24,18 @@ Lecture Id.     |  githubed | Elements Topology |  Contents
 3 | &#10004; | 1D & 3D | transcient dynamic analysis, nonlinear structural contact analysis
 4 | &#10008; | 3D | modal analysis (Students final exam)
 
-** Nota : ** Lecture 4 not githubed because not edited (Students Final Exam).
+**Nota** Lecture 4 not githubed because not edited (Students Final Exam).
 
 ## SOL Coverage
 
-Lecture Id.   |  SOL 101|  SOL 103  | SOL 105|SOL 106 | SOL 112 | SOL 200 |SOL 600
------------- | ------------| -------------
+Lecture Id.   | SOL 101 | SOL 103 | SOL 105 | SOL 106 | SOL 112 | SOL 200 | SOL 600
+------------  | ------- | ------- | ------- | ------- | ------- | ------- | ------- 
 1 | <html>&#x25CF;</html>| <html>&#x25EF;</html> | <html>&#x25EF;</html> |<html>&#x25CF;</html> | <html>&#x25EF;</html> | <html>&#x25CF;</html> | <html>&#x25EF;</html>
 2  | <html>&#x25CF;</html>| <html>&#x25EF;</html> | <html>&#x25CF;</html> |<html>&#x25EF;</html> | <html>&#x25EF;</html> | <html>&#x25EF;</html> | <html>&#x25EF;</html>
 3  | <html>&#x25CF;</html>| <html>&#x25EF;</html> | <html>&#x25EF;</html> |<html>&#x25EF;</html> | <html>&#x25CF;</html> | <html>&#x25EF;</html> |<html>&#x25CF;</html>
 4  | <html>&#x25CF;</html>| <html>&#x25CF;</html> | <html>&#x25EF;</html> |<html>&#x25EF;</html>| <html>&#x25EF;</html> | <html>&#x25EF;</html> | <html>&#x25EF;</html>
 
-** Nota : ** Only Structured Solution Sequences covered.
+**Nota** Only Structured Solution Sequences covered.
 
 # Outcomes
 
