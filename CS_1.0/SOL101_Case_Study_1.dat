@@ -11,7 +11,7 @@ CEND
 $ Case Control Section- - - - - - - - - - - - - - - - - - - - - - - - - +
 ECHO = NONE
 
-TITLE = MY FIRST NASTRAN RUN
+TITLE = CASE STUDY #1 - CANTILEVER BEAM
 
 $ Displacement Output Request
 $ - PRINT : Output to . f06
