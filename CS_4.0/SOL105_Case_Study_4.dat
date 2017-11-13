@@ -1,0 +1,82 @@
+
+$ NASTRAN Statements- - - - - - - - - - - - - - - - - - - - - - - - - - +
+NASTRAN SYSTEM (210)=2                                                  | Remove line # in PUNCH
+NASTRAN SYSTEM (319)=1                                                  | Extended Error Messages
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$ Executive Control Section - - - - - - - - - - - - - - - - - - - - - - +
+SOL 105
+CEND
+
+$ Case Control Section- - - - - - - - - - - - - - - - - - - - - - - - - +
+ECHO = NONE
+
+TITLE = CASE STUDY #4 - COUPON PLATE BUCKLING UNDER COMPRESSIVE LOAD
+
+$ Displacement Output Request
+$ - PRINT : Output to . f06
+$ - PUNCH : Output to . pch
+$ - PLOT  : Output to . op2
+
+DISPLACEMENT(PLOT)=ALL
+
+SPC = 2
+
+SUBCASE 1001
+   SUBTITLE=COMPRESSION
+   LABEL=COMPRESSION
+   LOAD = 2
+   
+SUBCASE 1002
+   SUBTITLE=COMPRESSION
+   LABEL=COMPRESSION
+   METHOD = 1
+   STATSUB(BUCKLING)=1001
+   
+$ Bulk Data - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+BEGIN BULK
+
+$ Bulk Parameters - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+PARAM,POST,-1
+PARAM,AUTOSPC,NO
+PARAM,PRTMAXIM,YES
+
+$ Plate Topology, Material & Property - - - - - - - - - - - - - - - - - +
+INCLUDE 'PLATE_Case_Study_4.bdf'
+
+$ Eigenvalues Approach- - - - - - - - - - - - - - - - - - - - - - - - - +
+EIGRL    1                       10
+
+$ B.C.
+SPCADD   2       1
+
+SPC1     1       123456  518     THRU    528
+
+SPC1     1       123456  999
+
+$ Loading
+LOAD     2      1.	-1.     1
+
+FORCE    1       738            1250.   1.       0.      0.
+FORCE    1       739            1250.   1.       0.      0.
+FORCE    1       739            1250.   1.       0.      0.
+FORCE    1       740            1250.   1.       0.      0.
+FORCE    1       740            1250.   1.       0.      0.
+FORCE    1       741            1250.   1.       0.      0.
+FORCE    1       741            1250.   1.       0.      0.
+FORCE    1       742            1250.   1.       0.      0.
+FORCE    1       742            1250.   1.       0.      0.
+FORCE    1       743            1250.   1.       0.      0.
+FORCE    1       743            1250.   1.       0.      0.
+FORCE    1       744            1250.   1.       0.      0.
+FORCE    1       744            1250.   1.       0.      0.
+FORCE    1       745            1250.   1.       0.      0.
+FORCE    1       745            1250.   1.       0.      0.
+FORCE    1       746            1250.   1.       0.      0.
+FORCE    1       746            1250.   1.       0.      0.
+FORCE    1       747            1250.   1.       0.      0.
+FORCE    1       747            1250.   1.       0.      0.
+FORCE    1       748            1250.   1.       0.      0.
+
+ENDDATA
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
