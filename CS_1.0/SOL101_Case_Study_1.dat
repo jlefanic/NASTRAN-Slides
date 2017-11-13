@@ -1,0 +1,65 @@
+
+$ NASTRAN Statements- - - - - - - - - - - - - - - - - - - - - - - - - - +
+NASTRAN SYSTEM (210)=2                                                  | Remove line # in PUNCH
+NASTRAN SYSTEM (319)=1                                                  | Extended Error Messages
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$ Executive Control Section - - - - - - - - - - - - - - - - - - - - - - +
+SOL 101
+CEND
+
+$ Case Control Section- - - - - - - - - - - - - - - - - - - - - - - - - +
+ECHO = NONE
+
+TITLE = MY FIRST NASTRAN RUN
+
+$ Displacement Output Request
+$ - PRINT : Output to . f06
+$ - PUNCH : Output to . pch
+$ - PLOT  : Output to . op2
+
+ESE(PLOT,PRINT)=ALL
+DISP(PLOT,PRINT,PUNCH)=ALL
+FORCE(PLOT,PRINT)=ALL
+OLOAD(PLOT,PRINT,PUNCH)=ALL
+STRESS(PLOT,PRINT)=ALL
+STRAIN(PLOT,PRINT)=ALL
+GPFORCE(PLOT,PRINT,PUNCH)=ALL
+GPSTRESS(PLOT,PRINT)=ALL
+SPCFORCES(PLOT,PRINT)=ALL
+MPCFORCES(PLOT,PRINT)=ALL
+
+TITLE = CASE_STUDY_#1
+
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+$ * BENDING                                                             *
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+SUBCASE 1000
+	LABEL=CLAMPED_BEAM
+	SUBTITLE=CLAMPED_BEAM
+	SPC=1000
+	LOAD=1000
+
+$ Bulk Data - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+BEGIN BULK
+
+$ Bulk Parameters - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+PARAM,POST,-1
+PARAM,AUTOSPC,NO
+PARAM,PRTMAXIM,YES
+
+$ Beam Topology, Material & Property - - - - - - - - - - - - - - - - - +
+INCLUDE 'BEAM_Case_Study_1.bdf'
+
+$ B.C.
+$1	2	3	4	5	6	7	8	9	0
+SPCADD	1000	1
+SPC	1	1	123456
+
+$ Loading
+$1	2	3	4	5	6	7	8	9	0
+LOAD	1000	1.	1.	1
+FORCE	1	9	0	810.	0.	-1.	0.
+
+ENDDATA
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
