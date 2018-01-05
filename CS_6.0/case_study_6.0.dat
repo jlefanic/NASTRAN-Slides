@@ -1,0 +1,106 @@
+SOL 112
+
+CEND
+
+TITLE = CANTILEVER BEAM
+
+SUBTITLE = MODAL TRANSIENT RESPONSE
+
+SPC = 21
+DLOAD = 22
+TSTEP = 27
+SDAMPING = 25
+
+METHOD = 10
+
+$ PHYSICAL OUTPUT REQUEST
+SET 11 = 6,11
+DISPLACEMENT(PLOT, PRINT) = 11
+ACCELERATION(PLOT, PRINT) = 11
+
+$ MODAL SOLUTION SET OUTPUT
+SET 12 = 1,2
+SDISP(PLOT, PRINT) = 12
+
+$ ELEMENT FORCE OUTPUT
+SET 13 = 6
+ELFORCE(PLOT, PRINT) = 13
+
+$ APPLIED LOAD OUTPUT
+SET 15 = 6,11
+OLOAD(PLOT, PRINT) = 15
+
+BEGIN BULK
+PARAM	POST	-1
+$  CONVERT WEIGHT TO MASS:  MASS = (1/G)*WEIGHT
+$  G = 9.81 m/sec**2  --> WTMASS = 1/G = 0.102
+PARAM   WTMASS  0.102
+
+$1	2	3	4	5	6	7	8	9
+$EIGRL  SID     V1      V2              MSGLVL
+EIGRL   10      -0.1    3000.           0
+
+$TSTEP  SID     N1      DT1     NO1
+TSTEP   27      2000    0.001   1
+
+$  MODAL DAMPING OF 5% IN ALL MODES
+$TABDMP1 TID    TYPE                                                    +TABD
+$+TABD  F1      G1      F2      G2      ETC.
+TABDMP1 25      CRIT                                                    +TABD
++TABD   0.      0.05    1000.   0.05    ENDT
+
+$ DYNAMIC LOADING
+
+$DLOAD  SID     S       S1      L1      S2      L2
+DLOAD   22      1.0     1.0     231     1.0     232
+
+$TLOAD2 SID     DAREA   DELAY   TYPE    T1      T2      F       P       +TL1
+$+TL1   C       B 
+TLOAD2  231     241             0       0.0     0.50    2.0     90.
+TLOAD2  232     242     262     0       0.0     0.50    4.0     90.
+
+$DAREA  SID     P1      C1      A1
+DAREA   241     11      2       6.0
+DAREA   242     6       2       3.0
+
+$DELAY  SID     P1      C1      T1
+DELAY   262     6       2       0.1
+
+$  MAKE 2D MODEL
+GRDSET                                                  345
+
+$  ALUMINUM PROPERTIES:
+$  E = 7.1E10 N/m**2, NU = 0.33, RHO = 2.65E4 N/m**3  (W E I G H T  DENSITY) 
+$MAT1   MID     E       G       NU      RHO
+MAT1    1       7.1+10          0.33    2.65+4
+
+$  I1 AND I2 IDENTICAL
+$  ADD NONSTRUCTURAL WEIGHT OF 2.414 N/M
+PBAR    1       1       6.158-4 3.0-8   3.0-8   6.-8    2.414
+
+CBAR    1       1       1       2       0.      1.      0.                      
+CBAR    2       1       2       3       0.      1.      0.                      
+CBAR    3       1       3       4       0.      1.      0.                      
+CBAR    4       1       4       5       0.      1.      0.                      
+CBAR    5       1       5       6       0.      1.      0.                      
+CBAR    6       1       6       7       0.      1.      0.                      
+CBAR    7       1       7       8       0.      1.      0.                      
+CBAR    8       1       8       9       0.      1.      0.                      
+CBAR    9       1       9       10      0.      1.      0.                      
+CBAR    10      1       10      11      0.      1.      0.
+                      
+GRID    1               0.0     0.      0.                                      
+GRID    2               0.3     0.      0.                                      
+GRID    3               0.6     0.      0.                                      
+GRID    4               0.9     0.      0.                                      
+GRID    5               1.2     0.      0.                                      
+GRID    6               1.5     0.      0.                                      
+GRID    7               1.8     0.      0.                                      
+GRID    8               2.1     0.      0.                                      
+GRID    9               2.4     0.      0.                                      
+GRID    10              2.7     0.      0.                                      
+GRID    11              3.0     0.      0.                                      
+
+SPC     21      1       126
+
+ENDDATA
