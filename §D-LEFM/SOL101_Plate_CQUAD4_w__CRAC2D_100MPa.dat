@@ -1,0 +1,48 @@
+$- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+SOL 101
+CEND
+$ Case Control Section - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+ECHO = NONE
+
+TITLE = §D - Linear Elastic Fracture Mechanics
+
+$ Displacement Output Request
+$ - PRINT : Output to .f06
+$ - PUNCH : Output to .pch
+$ - PLOT : Output to .op2
+DISP(PLOT)=ALL
+
+STRESS(PRINT,PLOT)=ALL
+
+SPC =1000
+
+SUBCASE 1000
+	LABEL = SAMPLE CRAC2D
+	SUBTITLE = SAMPLE CRAC2D
+	LOAD =1000
+
+$- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+BEGIN BULK
+$ Bulk Parameters- - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+PARAM,POST,-1
+PARAM,AUTOSPC,NO
+PARAM,PRTMAXIM,YES
+
+LOAD	1000	1.000	0.03  	1
+
+SPCADD	1000	2	3	4
+
+INCLUDE 'Plate_CQUAD4_w__2xCRAC2D.bdf'
+
+ADUM8   18      0       5       0       CRAC2D
+
+PRAC2D  11      1       3.      0       .10      0.50    180.
+CRAC2D  9       11      10325	10354	5216	5217	5218	5117
+	5016	5015	5014	10324	
+
+PRAC2D  12      1       3.      0       .10      0.50    180.
+CRAC2D  10       12     10295	10326	5188	5187	5186	5085
+	4984	4985	4986	10296
+ENDDATA
+- - - - - - 8< - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
