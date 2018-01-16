@@ -1,0 +1,83 @@
+
+$ NASTRAN Statements- - - - - - - - - - - - - - - - - - - - - - - - - - +
+NASTRAN SYSTEM (210)=2                                                  | Remove line # in PUNCH
+NASTRAN SYSTEM (319)=1                                                  | Extended Error Messages
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$ Executive Control Section - - - - - - - - - - - - - - - - - - - - - - +
+SOL 106
+DIAG 56                                                                 | Not bad to remind nonlinear
+                                                                        | parameters in .f06
+CEND
+
+$ Case Control Section- - - - - - - - - - - - - - - - - - - - - - - - - +
+ECHO = NONE
+
+TITLE = CASE STUDY #2 - CANTILEVER BEAM
+
+$ Displacement Output Request
+$ - PRINT : Output to . f06
+$ - PUNCH : Output to . pch
+$ - PLOT  : Output to . op2
+
+ESE(PLOT,PRINT)=ALL
+DISP(PLOT,PRINT,PUNCH)=ALL
+FORCE(PLOT,PRINT)=ALL
+OLOAD(PLOT,PRINT,PUNCH)=ALL
+STRESS(PLOT,PRINT)=ALL
+STRAIN(PLOT,PRINT)=ALL
+GPFORCE(PLOT,PRINT,PUNCH)=ALL
+GPSTRESS(PLOT,PRINT)=ALL
+SPCFORCES(PLOT,PRINT)=ALL
+MPCFORCES(PLOT,PRINT)=ALL
+
+TITLE = CASE_STUDY_#2 - SIMPLE SOL 106                          
+
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+$ * BENDING  -  /!\ WEAKLY NONLINEAR... UNLESS LOADING IS MORE COMPLEX  *
+$ *                                  e.g. WITH AN ENFORCED HIGH MOMENT  *
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+SUBCASE 1000
+        LABEL=CLAMPED_BEAM
+        SUBTITLE=CLAMPED_BEAM
+        SPC=1000
+        NLPARM=1000
+        LOAD=1000
+
+$ Bulk Data - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+BEGIN BULK
+
+$ Bulk Parameters - - - - - - - - - - - - - - - - - - - - - - - - - - - +
+PARAM,POST,-1
+PARAM,AUTOSPC,NO
+PARAM,PRTMAXIM,YES
+PARAM,LGDISP,+1
+PARAM,FOLLOWK,YES
+
+$ Nonlinear Parameters- - - - - - - - - - - - - - - - - - - - - - - - - +
+
+$-----------------------------------------------------------------------+
+$                               NLPARM  CARD                            |
+$-----------------------------------------------------------------------+
+$1      2       3       4       5       6       7       8       9       0
+$       Id.     NINC    DT      KMETHOD KSTEP   MAXITER CONV    INOUT   
+NLPARM  1000    10              AUTO    1                       NO      +
+$       EPSU    EPSP    EPSW
++               1.0E-3  1.0E-7  
+$-----------------------------------------------------------------------+
+
+$ Beam Topology, Material & Property- - - - - - - - - - - - - - - - - - +
+INCLUDE '../CS_1.0/BEAM_Case_Study_1.bdf'
+
+$ B.C.
+$1      2       3       4       5       6       7       8       9       0
+SPCADD  1000    1
+SPC     1       1       123456
+
+$ Loading
+$1      2       3       4       5       6       7       8       9       0
+LOAD    1000    1.      1.      1
+FORCE   1       9       0       810.    0.      -1.     0.
+
+ENDDATA
+$ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
