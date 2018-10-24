@@ -9,7 +9,7 @@
 ``` bash
 python a.f06
 ```
-In order to release from `NASTRAN` `GPWG` `.f06` Table (from MO Rigid body mass Matrix as per  [1] nomenclature) a `NASTRAN` `.conm2` Card.The latter is written into `a.conm2`.
+In order to release from `NASTRAN` `GPWG` `.f06` Table (from MO Rigid body mass Matrix as per  [1] nomenclature) a `NASTRAN` `.conm2` Card. The latter is written into `a.conm2`.
 
 ## Reference
 
