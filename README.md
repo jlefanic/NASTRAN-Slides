@@ -22,9 +22,8 @@ Lecture Id.     |  githubed | Elements Topology |  Contents
 1 | &#10004; | 1D | linear static structural analysis, nonlinear flavour
 2 | &#10004; | 2D | linear static structural analysis, buckling and static Guyan Reduction
 3 | &#10004; | 1D & 3D | transcient dynamic analysis, nonlinear structural contact analysis
-4 | &#10008; | 3D | modal analysis (Students final exam)
+4 | &#10004; | 3D | modal analysis (Students final exam designed by Teachers)
 
-**Nota :** Lecture 4 not githubed because not edited (Students Final Exam).
 
 ## SOL Coverage
 
